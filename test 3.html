@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+      .col-xs-3{float: left;width: 50%;padding: 5px;}
+      .l_cont{text-align: center;}
+  </style>
+</head>
+<body>
+ 
+<div class="l_cont">
+  <div class="card">
+    <div class="card-header"><h3>Cuple Love Calculator</h3></div>
+    <div class="card-body">
+    <form>
+        <div class="col-xs-3">
+        <input type="text" name="" placeholder="Your Name" id="name" class="form-control text-center">
+        </div>
+        <div class="col-xs-3">
+        <input type="text" name="" placeholder="Love Name" id="lname" class="form-control text-center">
+        </div>
+        <br><br><br>
+        <div style="">
+        <input type="button" name="" id="btn" onclick="lovecheck();" value="Click Me"  class="btn btn-primary active">
+        <input type="button" name="" id="btn_1" value="Re Calculate" onclick="myFunction()"  class="btn btn-danger">
+        </div>
+        <br>
+        <div class="col-xs-3" style="width:30%;margin-left: 35%;">
+        <input type="text" id="lovevalue" name="" placeholder="Love Percentage" disabled class="form-control text-center">
+        </div><br><br>
+    </form>
+    </div> 
+    <div class="card-footer">
+            <div id="love"><b>Note : </b>Please don't take seriacuse this is only game.</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    function lovecheck(){
+    
+    var name = document.getElementById("name").value;
+    var lname = document.getElementById("lname").value;
+    if(name==""){
+        alert("Please enter your name");
+    }else if(name.length<=2){
+        alert("Minmum name length is 3");
+    }else if(!isNaN(name)){
+        alert("Numbers are not allowed");
+    }else if(lname==""){
+        alert("Please enter your name");
+    }else if(lname.length<=2){
+        alert("Minmum name length is 3");
+    }else if(!isNaN(lname)){
+        alert("Number are not allowed");
+    }else{
+    var lovechecker = Math.random()*100;
+    lovechecker = Math.floor(lovechecker);
+    document.getElementById("lovevalue").value = lovechecker+" %";
+    document.getElementById("love").value = lovechecker+" %";
+    
+    //document.getElementById("love").innerHTML = "You are love with your partner "+lovechecker+" %";
+    
+    if(lovechecker<=15){
+        document.getElementById("love").innerHTML = "Sorry, "+name +" "+ lovechecker+"% Your love is not true.";
+    }else if(lovechecker<=30){
+        document.getElementById("love").innerHTML = name +"Your"+ lovechecker+"% i think, Your Relationship is average.";
+    }else if(lovechecker<=50){
+        document.getElementById("love").innerHTML = "Hey, "+name +" Your love percentage is "+lovechecker+" % i think, Good Relationship.";
+    }else if(lovechecker<=75){
+        document.getElementById("love").innerHTML = "Congratulations "+name+" Your love percentage is "+lovechecker+" % i think, this is is the Great Relationship with your lover.";
+    }else if(lovechecker<=100){
+        document.getElementById("love").innerHTML = "Very-Very congratulations "+name+" Your love percentage "+lovechecker+" % is very high, Excellent Relationship, i wish always you love him";
+    }
+    
+     document.getElementById('btn').disabled = true;
+    }
+    
+    }
+    
+    
+    //  reload page function
+    function myFunction() {
+    location.reload();
+    }
+    
+    </script>
+</body>
+</html>
